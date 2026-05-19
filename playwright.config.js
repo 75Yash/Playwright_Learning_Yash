@@ -31,12 +31,6 @@ module.exports = defineConfig({
     ['html'],
 
     ['list'],
-
-    ['json', {
-
-      outputFile: 'report.json'
-
-    }]
   ],
 
   // Shared browser settings
@@ -67,7 +61,7 @@ module.exports = defineConfig({
 
     // Trace config
     trace:
-    'on-first-retry',
+    'retain-on-failure',
 
     // HTTPS ignore
     ignoreHTTPSErrors: true
