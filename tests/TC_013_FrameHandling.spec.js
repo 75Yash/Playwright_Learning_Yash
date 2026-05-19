@@ -1,0 +1,40 @@
+const { test, expect } = require('@playwright/test');
+
+test.describe('Frames & iFrames Handling', () => {
+
+  test('Handle iFrame', async ({ page }) => {
+
+      await page.goto('https://the-internet.herokuapp.com/iframe');
+
+      // =========================
+      // frameLocator()
+      // =========================
+
+      const frame = page.frameLocator('#mce_0_ifr');
+
+      // =========================
+      // Clear Existing Text
+      // =========================
+
+      await frame.locator('body').clear();
+
+      // =========================
+      // Enter Text Inside Frame
+      // =========================
+
+      await frame.locator('body').fill('Hello Playwright Frame');
+
+      // =========================
+      // Validation
+      // =========================
+
+      await expect(frame.locator('body')).toContainText(
+        'Hello Playwright Frame'
+      );
+
+      console.log('iFrame Handling Successful'
+      );
+
+    });
+
+});

@@ -1,0 +1,26 @@
+{
+  "name": "playwright_learning",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/75Yash/Playwright_Learning_Yash.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/75Yash/Playwright_Learning_Yash/issues"
+  },
+  "homepage": "https://github.com/75Yash/Playwright_Learning_Yash#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0"
+  },
+  "dependencies": {
+    "csv-parser": "^3.2.1"
+  }
+}
