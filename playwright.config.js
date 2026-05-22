@@ -31,6 +31,8 @@ module.exports = defineConfig({
     ['html'],
 
     ['list'],
+
+    ['github']
   ],
 
   // Shared browser settings
