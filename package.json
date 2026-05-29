@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "cucumber-js",
+    "smoke": "cucumber-js --tags @smoke",
+    "regression": "cucumber-js --tags @regression"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/75Yash/Playwright_Learning_Yash.git"
@@ -17,8 +21,10 @@
   },
   "homepage": "https://github.com/75Yash/Playwright_Learning_Yash#readme",
   "devDependencies": {
+    "@cucumber/cucumber": "^12.9.0",
     "@playwright/test": "^1.60.0",
-    "@types/node": "^25.8.0"
+    "@types/node": "^25.8.0",
+    "cucumber-html-reporter": "^7.2.0"
   },
   "dependencies": {
     "csv-parser": "^3.2.1"
