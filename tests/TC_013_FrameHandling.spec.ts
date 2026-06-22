@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+﻿import { test, expect } from '@playwright/test';
 
 test.describe('Frames & iFrames Handling', () => {
 
@@ -30,9 +30,6 @@ test.describe('Frames & iFrames Handling', () => {
 
       await expect(frame.locator('body')).toContainText(
         'Hello Playwright Frame'
-      );
-
-      console.log('iFrame Handling Successful'
       );
 
     });

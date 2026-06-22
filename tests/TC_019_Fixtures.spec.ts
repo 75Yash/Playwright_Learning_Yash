@@ -1,4 +1,4 @@
-const { test } = require('../fixtures/CustomFixture');
+﻿import { test } from '../fixtures/CustomFixture';
 
 test.describe('Data Fixture',() => {
 

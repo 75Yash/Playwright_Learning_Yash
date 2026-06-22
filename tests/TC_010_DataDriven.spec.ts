@@ -1,6 +1,6 @@
-import { test } from '@playwright/test';
+﻿import { test, expect } from '@playwright/test';
 import users from '../test-data/users.json';
-const readCSV = require('../utils/csvReader');
+import readCSV from '../utils/csvReader';
 
 test.describe('JSON Data Driven Testing',() => {
 users.forEach((data) => {
@@ -25,17 +25,17 @@ users.forEach((data) => {
 
 test.describe('CSV Data Driven Testing',() => {
 
-  let users;
+  let csvUsers: Array<Record<string, string>>;
 
   test.beforeAll(async () => {
 
-    users = await readCSV('test-data/users.csv');
+    csvUsers = await readCSV('test-data/users.csv');
 
   });
 
   test('Login Using CSV Data', async ({ page }) => {
 
-    for (const user of users) {
+    for (const user of csvUsers) {
 
       await page.goto('/');
 
@@ -50,9 +50,7 @@ test.describe('CSV Data Driven Testing',() => {
       // Validation
       await expect(page).toHaveURL(/inventory/);
 
-      console.log(`CSV Login Success:
-        ${user.username}`
-      );
+      console.log(`CSV Login Success: ${user.username}`);
 
       // Logout for next iteration
       await page.goto('https://www.saucedemo.com');

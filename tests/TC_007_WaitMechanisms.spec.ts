@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+﻿import { test, expect } from '@playwright/test';
 
 test('Playwright Wait Examples', async ({ page }) => {
 
@@ -48,7 +48,5 @@ test('Playwright Wait Examples', async ({ page }) => {
   // =========================
 
   await expect(page.locator('.title')).toHaveText('Products');
-
-  console.log('All Waits Executed Successfully');
 
 });

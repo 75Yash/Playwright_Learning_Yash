@@ -1,61 +1,41 @@
+﻿import type { Locator, Page } from '@playwright/test';
+
 class LoginPage {
+  readonly page: Page;
+  readonly usernameInput: Locator;
+  readonly passwordInput: Locator;
+  readonly loginButton: Locator;
+  readonly errorMessage: Locator;
 
-  constructor(page) {
-
+  constructor(page: Page) {
     this.page = page;
-
-    // =========================
-    // Locators
-    // =========================
-
     this.usernameInput = page.locator('#user-name');
-
     this.passwordInput = page.locator('#password');
-    
     this.loginButton = page.locator('#login-button');
-
     this.errorMessage = page.locator('[data-test="error"]');
-
   }
-
-  // =========================
-  // Methods
-  // =========================
 
   async gotoLoginPage() {
-
     await this.page.goto('https://www.saucedemo.com');
-
   }
 
-  async enterUsername(username) {
-
+  async enterUsername(username: string) {
     await this.usernameInput.fill(username);
-
   }
 
-  async enterPassword(password) {
-
+  async enterPassword(password: string) {
     await this.passwordInput.fill(password);
-
   }
 
   async clickLogin() {
-
     await this.loginButton.click();
-
   }
 
-  async login(username, password) {
-
+  async login(username: string, password: string) {
     await this.enterUsername(username);
-
     await this.enterPassword(password);
-
     await this.clickLogin();
-
   }
-
 }
 
-module.exports = LoginPage;
+export default LoginPage;

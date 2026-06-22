@@ -1,8 +1,8 @@
-const {Given, When, Then} = require('@cucumber/cucumber');
+﻿import { Given, When, Then } from '@cucumber/cucumber';
 
-const { expect } = require('@playwright/test');
+import { expect } from '@playwright/test';
 
-const LoginPage = require('../../pages/LoginPage');
+import LoginPage from '../../pages/LoginPage';
 
 let loginPage;
 

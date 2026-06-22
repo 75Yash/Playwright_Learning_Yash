@@ -1,8 +1,8 @@
-const { test, expect } = require('@playwright/test');
+﻿import { test, expect } from '@playwright/test';
 
-const LoginPage = require('../pages/LoginPage');
+import LoginPage from '../pages/LoginPage';
 
-const InventoryPage = require('../pages/InventoryPage');
+import InventoryPage from '../pages/InventoryPage';
 
 test.describe('POM Login Flow', () => {
 
@@ -39,10 +39,6 @@ test.describe('POM Login Flow', () => {
     // =========================
 
     await inventoryPage.addBackpackToCart();
-
-    console.log(
-      'POM Flow Executed Successfully'
-    );
 
   });
 

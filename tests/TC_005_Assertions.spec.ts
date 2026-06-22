@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+﻿import { test, expect } from '@playwright/test';
 
   test('Playwright Assertions Demo',
   async ({ page }) => {
@@ -62,7 +62,5 @@ const { test, expect } = require('@playwright/test');
     // =========================
 
     await expect(page.locator('.inventory_item')).toHaveCount(6);
-
-    console.log('Assertions Executed Successfully');
 
   });

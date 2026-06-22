@@ -1,4 +1,4 @@
-const { test, expect } = require('@playwright/test');
+﻿import { test, expect } from '@playwright/test';
 
 test.describe('Keyboard & Mouse Actions',() => {
 
@@ -28,8 +28,6 @@ test.describe('Keyboard & Mouse Actions',() => {
     // Press ENTER
     await page.keyboard.press('Enter');
 
-    console.log('Keyboard Actions Successful');
-
   });
 
   // =========================
@@ -46,15 +44,11 @@ test.describe('Keyboard & Mouse Actions',() => {
 
     await page.hover('#login-button');
 
-    console.log('Mouse Hover Performed');
-
     // =========================
     // Double Click
     // =========================
 
     await page.dblclick('#login-button');
-
-    console.log('Double Click Performed');
 
     // =========================
     // Right Click
@@ -66,8 +60,29 @@ test.describe('Keyboard & Mouse Actions',() => {
 
     );
 
-    console.log('Right Click Performed');
+  });
+
+  test('Drag and Drop Demo', async ({ page }) => {
+
+    await page.goto('https://the-internet.herokuapp.com/drag_and_drop');
+
+    const source = page.locator('#column-a');
+    const target = page.locator('#column-b');
+
+    // =========================
+    // Drag and Drop
+    // =========================
+
+    await source.dragTo(target);
+
+    // =========================
+    // Validation
+    // =========================
+
+    await expect(page.locator('#column-a header')).toHaveText('B');
+
+    await expect(page.locator('#column-b header')).toHaveText('A');
 
   });
 
-});
+}); 
