@@ -11,7 +11,7 @@ test.describe('Single File Upload', () => {
     // Upload File
     await page.setInputFiles(
       '#file-upload',
-      'test-data/sample.txt'
+      'test-data/users.csv'
     );
 
     await page.click('#file-submit');
@@ -28,8 +28,8 @@ test('Multiple File Upload', async ({ page }) => {
 
   await page.setInputFiles('#upload',
     [
-      'test-data/sample1.txt',
-      'test-data/sample2.txt'
+      'test-data/users.csv',
+      'test-data/users.json'
     ]
   );
 });

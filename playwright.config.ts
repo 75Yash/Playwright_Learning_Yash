@@ -7,7 +7,7 @@ export default defineConfig({
   retries: 1,
   workers: 2,
   fullyParallel: true,
-  reporter: [ ['html'], ['list'], ['github'] ],
+  reporter: [ ['html'], ['list'], ['github']],
   use: {
     baseURL: 'https://www.saucedemo.com',
     headless: false,
@@ -18,8 +18,8 @@ export default defineConfig({
     ignoreHTTPSErrors: true
   },
   projects: [
-    { name: 'chromium', use: { browserName: 'chromium' } },
-    { name: 'firefox', use: { browserName: 'firefox' } },
-    { name: 'mobile-chrome', use: { ...devices['Pixel 5'] } }
+    { name: 'chromium', use: { browserName: 'chromium' } }
+    
+    // { name: 'firefox', use: { browserName: 'firefox' } }
   ]
 });

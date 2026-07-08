@@ -8,7 +8,7 @@ test('File Download', async ({ page }) => {
   const downloadPromise = page.waitForEvent('download');
 
   // Trigger download
-  await page.locator('a').first().click();
+  await page.locator('a').nth(1).click();
 
   // Capture download object
   const download = await downloadPromise;
