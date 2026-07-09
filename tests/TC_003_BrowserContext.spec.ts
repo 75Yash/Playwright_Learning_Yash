@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
   test('Multiple Browser Contexts',async ({ browser }) => {
 
@@ -26,7 +27,7 @@
 
     await expect(page1).toHaveURL(/inventory/);
 
-    console.log('User 1 Logged In');
+    Logger.info('User 1 Logged In');
 
     // Context 2
 
@@ -39,7 +40,7 @@
     // Validate user is NOT logged in
     await expect(page2.locator('#login-button')).toBeVisible();
 
-    console.log('User 2 Fresh Session');
+    Logger.info('User 2 Fresh Session');
 
     // Cleanup
     await context1.close();

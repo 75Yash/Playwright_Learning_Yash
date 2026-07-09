@@ -1,4 +1,5 @@
 import { test, expect, Page, Dialog } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.describe('Alert, Confirm & Prompt Handling', () => {
 
@@ -12,8 +13,8 @@ test.describe('Alert, Confirm & Prompt Handling', () => {
 
     page.once('dialog', async (dialog: Dialog) => {
 
-      console.log('Type:', dialog.type());
-      console.log('Message:', dialog.message());
+      Logger.info('Type:', dialog.type());
+      Logger.info('Message:', dialog.message());
 
       await dialog.accept();
 
@@ -31,8 +32,8 @@ test.describe('Alert, Confirm & Prompt Handling', () => {
 
     page.once('dialog', async (dialog: Dialog) => {
 
-      console.log('Type:', dialog.type());
-      console.log('Message:', dialog.message());
+      Logger.info('Type:', dialog.type());
+      Logger.info('Message:', dialog.message());
 
       await dialog.accept();
 
@@ -50,8 +51,8 @@ test.describe('Alert, Confirm & Prompt Handling', () => {
 
     page.once('dialog', async (dialog: Dialog) => {
 
-      console.log('Type:', dialog.type());
-      console.log('Message:', dialog.message());
+      Logger.info('Type:', dialog.type());
+      Logger.info('Message:', dialog.message());
 
       await dialog.dismiss();
 
@@ -69,8 +70,8 @@ test.describe('Alert, Confirm & Prompt Handling', () => {
 
     page.once('dialog', async (dialog: Dialog) => {
 
-      console.log('Type:', dialog.type());
-      console.log('Message:', dialog.message());
+      Logger.info('Type:', dialog.type());
+      Logger.info('Message:', dialog.message());
 
       await dialog.accept('Playwright Learning');
 
@@ -88,8 +89,8 @@ test.describe('Alert, Confirm & Prompt Handling', () => {
 
     page.once('dialog', async (dialog: Dialog) => {
 
-      console.log('Type:', dialog.type());
-      console.log('Message:', dialog.message());
+      Logger.info('Type:', dialog.type());
+      Logger.info('Message:', dialog.message());
 
       await dialog.dismiss();
 

@@ -1,6 +1,7 @@
 ﻿import { test, expect } from '@playwright/test';
 import users from '../test-data/users.json';
 import readCSV from '../utils/csvReader';
+import { Logger } from '../utils/logger';
 
 test.describe('JSON Data Driven Testing',() => {
 users.forEach((data) => {
@@ -50,7 +51,7 @@ test.describe('CSV Data Driven Testing',() => {
       // Validation
       await expect(page).toHaveURL(/inventory/);
 
-      console.log(`CSV Login Success: ${user.username}`);
+      Logger.info(`CSV Login Success: ${user.username}`);
 
       // Logout for next iteration
       await page.goto('https://www.saucedemo.com');

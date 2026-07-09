@@ -1,4 +1,5 @@
 import { test, expect, Locator, Page } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.describe('Dynamic Table Validation POC', () => {
 
@@ -22,7 +23,7 @@ test.describe('Dynamic Table Validation POC', () => {
 
     const rowCount: number =await rows.count();
 
-    console.log(`Row Count: ${rowCount}`);
+    Logger.info(`Row Count: ${rowCount}`);
 
     await expect(rows).toHaveCount(4);
 
@@ -32,7 +33,7 @@ test.describe('Dynamic Table Validation POC', () => {
 
     const columnCount: number = await columns.count();
 
-    console.log(`Column Count: ${columnCount}`);
+    Logger.info(`Column Count: ${columnCount}`);
 
     await expect(columns).toHaveCount(6);
 
@@ -40,13 +41,13 @@ test.describe('Dynamic Table Validation POC', () => {
     // Print Complete Table Data
     // ==========================================
 
-    console.log('\n===== Complete Table Data =====');
+    Logger.info('\n===== Complete Table Data =====');
 
     for (let i = 0; i < rowCount; i++) {
 
       const rowText = await rows.nth(i).textContent();
 
-      console.log(`Row ${i + 1}: ${rowText}`);
+      Logger.info(`Row ${i + 1}: ${rowText}`);
     }
 
     // ==========================================
@@ -57,7 +58,7 @@ test.describe('Dynamic Table Validation POC', () => {
 
     await expect(firstCell).toHaveText('Smith');
 
-    console.log('\nValidated First Cell = Smith');
+    Logger.info('\nValidated First Cell = Smith');
 
     // ==========================================
     // Dynamic Row Search
@@ -79,13 +80,13 @@ test.describe('Dynamic Table Validation POC', () => {
 
         const email = await row.locator('td').nth(2).textContent();
 
-        console.log('\n===== User Found =====');
+        Logger.info('\n===== User Found =====');
 
-        console.log('Last Name:', lastName);
+        Logger.info('Last Name:', lastName);
 
-        console.log('First Name:', firstName);
+        Logger.info('First Name:', firstName);
 
-        console.log('Email:', email);
+        Logger.info('Email:', email);
 
         expect(firstName).toBe('Frank');
 
@@ -105,9 +106,9 @@ test.describe('Dynamic Table Validation POC', () => {
     const firstRowData: string[] =
       await rows.first().locator('td').allTextContents();
 
-    console.log('\n===== First Row Data =====');
+    Logger.info('\n===== First Row Data =====');
 
-    console.log(firstRowData);
+    Logger.info(firstRowData);
 
     expect(firstRowData).toEqual([
         'Smith',
@@ -157,9 +158,9 @@ test.describe('Dynamic Table Validation POC', () => {
       });
     }
 
-    console.log('\n===== Table JSON Data =====');
+    Logger.info('\n===== Table JSON Data =====');
 
-    console.log(JSON.stringify(tableData,null,2)
+    Logger.info(JSON.stringify(tableData,null,2)
     );
 
     // ==========================================
@@ -174,7 +175,7 @@ test.describe('Dynamic Table Validation POC', () => {
 
     expect(bachUser?.firstName).toBe('Frank');
 
-    console.log('\nValidated Bach User Successfully');
+    Logger.info('\nValidated Bach User Successfully');
 
   });
 

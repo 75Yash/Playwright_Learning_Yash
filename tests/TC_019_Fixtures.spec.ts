@@ -1,4 +1,5 @@
 ﻿import { test } from '../fixtures/CustomFixture';
+import { Logger } from '../utils/logger';
 
 test.describe('Data Fixture',() => {
 
@@ -19,7 +20,7 @@ test.describe('Data Fixture',() => {
       '#login-button'
     );
 
-    console.log(`Logged in using:${testData.username}`
+    Logger.info(`Logged in using:${testData.username}`
     );
 
   });

@@ -1,14 +1,15 @@
 import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.beforeAll(async () => {
 
-  console.log('Before All Tests');
+  Logger.info('Before All Tests');
 
 });
 
 test.beforeEach(async ({ page }) => {
 
-  console.log('Before Each Test');
+  Logger.info('Before Each Test');
 
   await page.goto('https://www.saucedemo.com'
   );
@@ -17,13 +18,13 @@ test.beforeEach(async ({ page }) => {
 
 test.afterEach(async () => {
 
-  console.log('After Each Test');
+  Logger.info('After Each Test');
 
 });
 
 test.afterAll(async () => {
 
-  console.log('After All Tests');
+  Logger.info('After All Tests');
 
 });
 

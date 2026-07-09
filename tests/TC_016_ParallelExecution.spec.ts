@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 // Run tests in parallel
 test.describe.configure({
@@ -14,7 +15,7 @@ async ({ page }) => {
     'https://www.saucedemo.com'
   );
 
-  console.log('Test 1 Running');
+  Logger.info('Test 1 Running');
 
 });
 
@@ -25,7 +26,7 @@ async ({ page }) => {
     'https://playwright.dev'
   );
 
-  console.log('Test 2 Running');
+  Logger.info('Test 2 Running');
 
 });
 
@@ -36,7 +37,7 @@ async ({ page }) => {
     'https://example.com'
   );
 
-  console.log('Test 3 Running');
+  Logger.info('Test 3 Running');
 
 });
 

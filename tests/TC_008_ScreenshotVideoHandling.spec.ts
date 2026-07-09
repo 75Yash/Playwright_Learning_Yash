@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test('Capture Screenshot', async ({ page }) => {
 
@@ -12,7 +13,7 @@ test('Capture Screenshot', async ({ page }) => {
       fullPage: true
     });
 
-    console.log('Full Page Screenshot Captured');
+    Logger.info('Full Page Screenshot Captured');
 
     // =========================
     // Element Screenshot
@@ -22,7 +23,7 @@ test('Capture Screenshot', async ({ page }) => {
       path:'screenshots/login-button.png'
     });
 
-    console.log('Element Screenshot Captured');
+    Logger.info('Element Screenshot Captured');
 
   });
 

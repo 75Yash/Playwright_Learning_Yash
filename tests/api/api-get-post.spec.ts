@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { Logger } from '../../utils/logger';
 
 test.describe('GET & POST API Testing', () => {
 
@@ -12,7 +13,7 @@ test.describe('GET & POST API Testing', () => {
 
     expect(body.length).toBeGreaterThan(0);
 
-    console.log(body);
+    Logger.info(body);
 
   });
 
@@ -45,7 +46,7 @@ test.describe('GET & POST API Testing', () => {
 
     expect(body.booking.firstname).toBe('Yash');
 
-    console.log(body);
+    Logger.info(body);
 
   });
 

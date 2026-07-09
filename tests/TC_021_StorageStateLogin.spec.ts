@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.use({ storageState: 'utils/user-session.json' });
 
@@ -16,6 +17,6 @@ test('Login using Stored Session', async ({ page }) => {
             'Products'
         );
 
-        console.log('Session Reused Successfully');
+        Logger.info('Session Reused Successfully');
 
     });

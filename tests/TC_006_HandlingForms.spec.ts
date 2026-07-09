@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.describe('Forms & Inputs Handling', () => {
 
@@ -27,7 +28,7 @@ test.describe('Forms & Inputs Handling', () => {
     // Validate Login
     await expect(page).toHaveURL(/inventory/);
 
-    console.log('Login Successful');
+    Logger.info('Login Successful');
 
   });
 
@@ -44,7 +45,7 @@ test('Checkbox Handling',async ({ page }) => {
   // Validate checked
   await expect(checkbox).toBeChecked();
 
-  console.log('Checkbox Checked'
+  Logger.info('Checkbox Checked'
   );
 
 });
@@ -59,7 +60,7 @@ test('Radio Button Handling',async ({ page }) => {
   // Validation
   await expect(page.locator('.text-success')).toHaveText('Yes');
 
-  console.log('Radio Button Selected');
+  Logger.info('Radio Button Selected');
 
 });
 
@@ -77,7 +78,7 @@ test('Dropdown Handling',async ({ page }) => {
   await page.selectOption('#dropdown',{label: 'Option 2'}
   );
 
-  console.log('Dropdown Option Selected');
+  Logger.info('Dropdown Option Selected');
 });
 
 });

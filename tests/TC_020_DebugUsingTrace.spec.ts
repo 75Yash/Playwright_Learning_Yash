@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.describe('Trace Viewer Debug Demo', () => {
 
@@ -6,7 +7,7 @@ test.describe('Trace Viewer Debug Demo', () => {
 
     await page.goto('/');
 
-    console.log('Website Opened');
+    Logger.info('Website Opened');
 
     // =========================
     // Fill Username
@@ -14,7 +15,7 @@ test.describe('Trace Viewer Debug Demo', () => {
 
     await page.fill('#user-name','standard_user');
 
-    console.log('Username Entered');
+    Logger.info('Username Entered');
 
     // =========================
     // Fill Wrong Password
@@ -23,7 +24,7 @@ test.describe('Trace Viewer Debug Demo', () => {
 
     await page.fill('#password','wrong_password');
 
-    console.log('Wrong Password Entered');
+    Logger.info('Wrong Password Entered');
 
     // =========================
     // Click Login
@@ -31,7 +32,7 @@ test.describe('Trace Viewer Debug Demo', () => {
 
     await page.click('#login-button');
 
-    console.log('Login Button Clicked');
+    Logger.info('Login Button Clicked');
 
     // =========================
     // Wait for Error Message
@@ -41,7 +42,7 @@ test.describe('Trace Viewer Debug Demo', () => {
         '[data-test="error"]'
       )).toBeVisible();
 
-    console.log('Error Message Visible');
+    Logger.info('Error Message Visible');
 
     // =========================
     // Intentional Failure
@@ -53,7 +54,7 @@ test.describe('Trace Viewer Debug Demo', () => {
     await expect(page   ).toHaveURL(/inventory/);
 
     // This line never executes
-    console.log('This Will Not Print');
+    Logger.info('This Will Not Print');
 
   });
 

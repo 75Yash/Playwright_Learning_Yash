@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test('Handle Multiple Tabs', async ({ page }) => {
 
@@ -18,19 +19,19 @@ test('Handle Multiple Tabs', async ({ page }) => {
 
     await newPage.waitForLoadState();
 
-    console.log('New Tab Opened');
+    Logger.info('New Tab Opened');
 
     // Validate text in new tab
     await expect(newPage.locator('h3')).toHaveText('New Window');
 
     // Get title
-    console.log(await newPage.title());
+    Logger.info(await newPage.title());
 
     // Switch Back to Parent Tab
 
     await page.bringToFront();
 
-    console.log('Switched Back To Parent');
+    Logger.info('Switched Back To Parent');
 
     // Validate parent page
     await expect(page.locator('h3')).toHaveText('Opening a new window');
@@ -39,5 +40,5 @@ test('Handle Multiple Tabs', async ({ page }) => {
 
     await newPage.close();
 
-    console.log('New Tab Closed');
+    Logger.info('New Tab Closed');
   });

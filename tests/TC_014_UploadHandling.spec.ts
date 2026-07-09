@@ -16,7 +16,7 @@ test.describe('Single File Upload', () => {
 
     await page.click('#file-submit');
 
-    await expect(page.locator('#uploaded-files')).toHaveText('sample.txt');
+    await expect(page.locator('#uploaded-files')).toHaveText('users.csv');
   });
 
 });
@@ -24,9 +24,9 @@ test.describe('Single File Upload', () => {
 
 test('Multiple File Upload', async ({ page }) => {
 
-  await page.goto('https://example.com/upload');
+  await page.goto('https://the-internet.herokuapp.com/upload');
 
-  await page.setInputFiles('#upload',
+  await page.setInputFiles('#file-upload',
     [
       'test-data/users.csv',
       'test-data/users.json'

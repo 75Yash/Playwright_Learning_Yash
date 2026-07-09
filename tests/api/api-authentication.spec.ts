@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { Logger } from '../../utils/logger';
 
 test('Generate Authentication Token', async ({ request }) => {
 
@@ -26,6 +27,6 @@ test('Generate Authentication Token', async ({ request }) => {
 
   expect(body.token).toBeTruthy();
 
-  console.log('Token:', body.token);
+  Logger.info('Token:', body.token);
 
 });

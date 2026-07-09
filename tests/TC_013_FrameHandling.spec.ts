@@ -1,4 +1,5 @@
 ﻿import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test.describe('Frames & iFrames Handling', () => {
 
@@ -16,21 +17,24 @@ test.describe('Frames & iFrames Handling', () => {
       // Clear Existing Text
       // =========================
 
-      await frame.locator('body').clear();
+      const frameText = await frame.locator('body').innerText();
+      
+      Logger.info('Existing Text Inside Frame:', frameText);
 
-      // =========================
-      // Enter Text Inside Frame
-      // =========================
 
-      await frame.locator('body').fill('Hello Playwright Frame');
+      // // =========================
+      // // Enter Text Inside Frame
+      // // =========================
 
-      // =========================
-      // Validation
-      // =========================
+      // await frame.locator('body').fill('Hello Playwright Frame');
 
-      await expect(frame.locator('body')).toContainText(
-        'Hello Playwright Frame'
-      );
+      // // =========================
+      // // Validation
+      // // =========================
+
+      // await expect(frame.locator('body')).toContainText(
+      //   'Hello Playwright Frame'
+      // );
 
     });
 

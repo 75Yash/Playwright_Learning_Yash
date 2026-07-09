@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import { Logger } from '../utils/logger';
 
 test('File Download', async ({ page }) => {
 
@@ -14,7 +15,7 @@ test('File Download', async ({ page }) => {
   const download = await downloadPromise;
 
   // Get downloaded filename
-  console.log(await download.suggestedFilename());
+  Logger.info(await download.suggestedFilename());
 
   // Save file locally
   await download.saveAs(

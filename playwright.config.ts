@@ -7,7 +7,7 @@ export default defineConfig({
   retries: 1,
   workers: 2,
   fullyParallel: true,
-  reporter: [ ['html'], ['list'], ['github']],
+  reporter: [ ['html'], ['list'], ['github'], ['allure-playwright']],
   use: {
     baseURL: 'https://www.saucedemo.com',
     headless: false,
